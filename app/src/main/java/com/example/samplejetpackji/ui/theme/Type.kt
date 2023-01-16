@@ -9,8 +9,7 @@ import androidx.compose.ui.unit.sp
 
 // Set of Material typography styles to start with
 
-val Font = FontFamily(
- )
+
 
 val Typography = Typography(
     body1 = TextStyle(

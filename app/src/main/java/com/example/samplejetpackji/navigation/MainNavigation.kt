@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import com.example.samplejetpackji.FirstScreen
 import com.example.samplejetpackji.FormScreen
 import com.example.samplejetpackji.SecondScreen
+import com.example.samplejetpackji.screen.ShowData
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -29,6 +30,9 @@ fun MainNavigation() {
         composable(Screen.FORM){
             FormScreen(navHostController = navHostController)
         }
+        composable(Screen.DATASCREEN){
+            ShowData(navHostController = navHostController)
+        }
     }
 
 }
@@ -37,6 +41,7 @@ object Screen {
     const val FIRST_SCREEN = "firstScreen"
     const val SECOND_SCREEN = "secondScreen"
     const val FORM="login_form"
+    const val DATASCREEN="show_data"
 }
 
 class MainViewModel : ViewModel(){

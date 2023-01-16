@@ -69,6 +69,13 @@ fun ButtonField(text: String, onClick: () -> Unit) {
     }
 }
 
+@Composable
+fun TextField(text: String){
+    Text(text = "user name $text")
+
+
+}
+
 
 @Preview(showBackground = true)
 @Composable
