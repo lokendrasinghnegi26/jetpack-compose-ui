@@ -8,9 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.samplejetpackji.roomdb.entity.UserData
+import com.example.samplejetpackji.viewModel.UserViewModel
 
 @Composable
-fun FormScreen(navHostController: NavHostController) {
+fun FormScreen(navHostController: NavHostController, userViewModel: UserViewModel) {
     val context = LocalContext.current
     var username by remember {
         mutableStateOf("")
@@ -30,7 +32,7 @@ fun FormScreen(navHostController: NavHostController) {
             }, label = "enter password")
             Spacer(modifier = Modifier.height(10.dp))
             ButtonField(text = "submit") {
-
+                userViewModel.insertData(UserData(username,password))
                 Toast.makeText(context,"loginpage",Toast.LENGTH_SHORT).show()
             }
 

@@ -10,14 +10,15 @@ import com.example.samplejetpackji.FirstScreen
 import com.example.samplejetpackji.FormScreen
 import com.example.samplejetpackji.SecondScreen
 import com.example.samplejetpackji.screen.ShowData
+import com.example.samplejetpackji.viewModel.UserViewModel
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MainNavigation() {
+fun MainNavigation(userViewModel:UserViewModel) {
 
     val navHostController = rememberAnimatedNavController()
-    val mainViewModel:MainViewModel = viewModel()
+
 
 
     NavHost(navController = navHostController, startDestination = Screen.FIRST_SCREEN) {
@@ -28,7 +29,7 @@ fun MainNavigation() {
             SecondScreen(navHostController)
         }
         composable(Screen.FORM){
-            FormScreen(navHostController = navHostController)
+            FormScreen(navHostController = navHostController,userViewModel)
         }
         composable(Screen.DATASCREEN){
             ShowData(navHostController = navHostController)

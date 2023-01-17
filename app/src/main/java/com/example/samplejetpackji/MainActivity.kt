@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -16,8 +17,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.samplejetpackji.navigation.MainNavigation
 import com.example.samplejetpackji.ui.theme.SampleJetpackJiTheme
+import com.example.samplejetpackji.viewModel.UserViewModel
 
 class MainActivity : ComponentActivity() {
+    private val  userViewModel:UserViewModel by viewModels {
+        UserViewModel.UserViewModelFactory((application as MyApplication).repository)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainNavigation()
+                    MainNavigation(userViewModel)
                 }
             }
         }
