@@ -32,7 +32,7 @@ fun MainNavigation(userViewModel:UserViewModel) {
             FormScreen(navHostController = navHostController,userViewModel)
         }
         composable(Screen.DATASCREEN){
-            ShowData(navHostController = navHostController)
+            ShowData(navHostController = navHostController,userViewModel)
         }
     }
 

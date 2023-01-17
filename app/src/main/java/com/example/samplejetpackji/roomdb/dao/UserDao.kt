@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.samplejetpackji.roomdb.entity.UserData
 import kotlinx.coroutines.flow.Flow
 
@@ -19,4 +20,6 @@ interface UserDao {
 
     @Delete()
     suspend fun deleteUserData(userData: UserData)
+    @Update
+    suspend fun updateData(userData: UserData)
 }

@@ -8,7 +8,7 @@ import com.example.samplejetpackji.roomdb.entity.UserData
 import kotlinx.coroutines.CoroutineScope
 
 
-@Database(entities = [UserData::class], version = 1, exportSchema = false)
+@Database(entities = [UserData::class], version = 2, exportSchema = false)
 abstract class UserRoomDatabase : RoomDatabase() {
     abstract fun UserDao(): UserDao
 

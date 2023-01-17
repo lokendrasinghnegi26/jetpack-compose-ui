@@ -13,6 +13,10 @@ class UserRepository(private val userDao: UserDao) {
     }
 
    var getUsers:Flow<List<UserData>> = userDao.getAlUserData()
+    suspend fun updateUserData(userData: UserData){
+        userDao.updateData(userData)
+
+    }
 
 
  }
