@@ -2,6 +2,8 @@ package com.example.samplejetpackji
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +19,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun FormScreen(navHostController: NavHostController, userViewModel: UserViewModel) {
     val context = LocalContext.current
+    var isDialog by remember {
+        mutableStateOf(false)
+    }
     var username by remember {
         mutableStateOf("")
     }
@@ -55,6 +60,23 @@ fun FormScreen(navHostController: NavHostController, userViewModel: UserViewMode
             ButtonField(text = "Next") {
                 navHostController.navigate(Screen.DATASCREEN)
             }
+
+            ButtonField(text = "Dialog") {
+
+                isDialog=true
+
+             }
+
+            if (isDialog)
+            {
+                SimpleAlertDialog{
+                    isDialog = it
+                }
+            }
+
+
+
+
 
 
         }

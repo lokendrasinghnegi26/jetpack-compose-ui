@@ -102,6 +102,8 @@ fun listItem(userData: UserData,onDelete:()->Unit) {
                 onDelete()
             }
 
+
+
         }
     }
 
@@ -115,6 +117,29 @@ fun ImageButton(userData: UserData,onDelete: () -> Unit) {
 
 
     }
+}
+
+@Composable
+fun SimpleAlertDialog(
+    onValueChange:(Boolean)->Unit
+) {
+    AlertDialog(
+        onDismissRequest = {
+                           onValueChange(false)
+        },
+        confirmButton = {
+            TextButton(onClick = {
+                onValueChange(false)
+            })
+            { Text(text = "OK") }
+        },
+        dismissButton = {
+            TextButton(onClick = {})
+            { Text(text = "Cancel") }
+        },
+        title = { Text(text = "Please confirm") },
+        text = { Text(text = "Should I continue with the requested action?") }
+    )
 }
 
 
