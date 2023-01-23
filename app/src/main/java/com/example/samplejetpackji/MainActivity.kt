@@ -125,6 +125,8 @@ fun SimpleAlertDialog(
 ) {
     AlertDialog(
         onDismissRequest = {
+
+
                            onValueChange(false)
         },
         confirmButton = {
@@ -134,6 +136,8 @@ fun SimpleAlertDialog(
             { Text(text = "OK") }
         },
         dismissButton = {
+
+
             TextButton(onClick = {onValueChange(false)})
             { Text(text = "Cancel") }
         },
